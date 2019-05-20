@@ -8,11 +8,7 @@ import lxml
 from lxml import html
 import pandas as pd
 
-
-class ScrapeException(Exception):
-    '''
-    Raise when an error occurs scraping financial data
-    '''
+from .exceptions import ScrapeException
 
 
 class Yahoo:
@@ -29,7 +25,7 @@ class Yahoo:
     `       contents = requests.get(self.url).content
         except requests.exceptions.RequestException as err:
             raise ScrapeException(err)
-            
+
         html_data = html.fromstring(contents)
         table_list = html_data.xpath("//table")
 
