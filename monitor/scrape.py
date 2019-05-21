@@ -22,7 +22,7 @@ class Yahoo:
         self.url = self.URL_STRING % (symbol, symbol)
 
         try:
-    `       contents = requests.get(self.url).content
+            contents = requests.get(self.url).content
         except requests.exceptions.RequestException as err:
             raise ScrapeException(err)
 
