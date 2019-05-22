@@ -1,0 +1,3 @@
+'''
+Sets up testing configurations
+'''
