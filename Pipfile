@@ -10,6 +10,8 @@ pytest = "*"
 numpy = "~=1.16"
 sentry-sdk = "==0.7.14"
 requests = "~=2.22.0"
+lxml = "~=4.3.3"
+pandas = "~=0.23.4"
 
 [requires]
 python_version = "3.6"
