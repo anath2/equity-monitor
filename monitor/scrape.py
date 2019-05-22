@@ -32,16 +32,16 @@ class Yahoo:
         if not table_list:
             raise ScrapeException("No data for Symbol - {} on Yahoo".format(symbol))
 
-        table_string = lxml.etree.tostring(table_list[0], method='lxml')
+        table_string = lxml.etree.tostring(table_list[0], method='html')
         price_table = pd.read_html(table_string)[0].transpose()  # Formats table
         price_table.columns = price_table.iloc[0, :]
         self.price_table = price_table.iloc[1:, :]
 
     def price(self) -> float:
-        return float(self.price_table.loc['Close'])
+        return float(self.price_table.loc[:, 'Open'])
 
     def volume(self) -> int:
-        return int(self.price_table.loc['Volume'])
+        return int(self.price_table.loc[:, 'Volume'])
 
 
 class Google:
