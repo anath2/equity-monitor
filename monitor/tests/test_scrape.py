@@ -16,7 +16,7 @@ def yahoo():
     Creates an instance of yahoo scraper for AAPL
     '''
     yahoo_symbol = 'AAPL'
-    return scrape.Yahoo(yahoo_symbol)
+    return scrape.get_scraper(yahoo_symbol, 'yahoo')
 
 
 def test_price(yahoo):

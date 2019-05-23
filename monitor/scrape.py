@@ -11,6 +11,25 @@ import pandas as pd
 from .exceptions import ScrapeException
 
 
+def get_scraper(symbol: str, source: str):
+    '''
+    ARGS:
+        symbol: Ticker symbol for equity
+        source: Data source to be scraped for equity data 
+
+    Scraper factory returns an instance of Scraper for an equity 
+    '''
+    scraper_map = {
+        'yahoo': Yahoo,
+        'google': Google
+    }
+
+    if source not in scraper_map:
+        raise ScrapeException('Unknown data source {}'.format(source))
+
+    return scraper_map[source](symbol)
+
+
 class Yahoo:
     '''
     Retrieves equity data from http:://finance.yahoo.com
