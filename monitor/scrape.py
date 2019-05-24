@@ -56,8 +56,11 @@ class Yahoo:
         price_table.columns = price_table.iloc[0, :]
         self.price_table = price_table.iloc[1:, :]
 
-    def price(self) -> float:
+    def open(self) -> float:
         return float(self.price_table.loc[:, 'Open'])
+
+    def close(self) -> float:
+        return float(self.price_table.loc[:, 'Previous Close'])
 
     def volume(self) -> int:
         return int(self.price_table.loc[:, 'Volume'])

@@ -20,8 +20,9 @@ def yahoo():
 
 
 def test_price(yahoo):
-    assert isinstance(yahoo.price(), float)
-
-
+    assert isinstance(yahoo.close(), float)
+    assert isinstance(yahoo.open(), float)
+    
+    
 def test_volume(yahoo):
     assert isinstance(yahoo.volume(), int)
